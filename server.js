@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
+const User = require("./db/users");
 
 const port = process.env.PORT || 8080;
 const app = express();
@@ -15,12 +16,18 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: "https://storedb-wyw9.onrender.com/auth/google/callback"
 }, async(accessToken, refreshToken, profile, done) => {
-    const user = {
-        googleId: profile.id,
-        displayName: profile.displayName,
-        email: profile.emails[0].value
-    };
-    return done(null, profile);
+    let user = await User.findOne({
+        googleId: profile.id
+    })
+    if (!user) {
+        user = await User.create({
+            googleId: profile.id,
+            name: profile.displayName,
+            email: profile.emails[0].value,
+            role: "staff"
+        });
+    }
+    return done(null, user);
 }));
 
 passport.serializeUser((user, done) => {
