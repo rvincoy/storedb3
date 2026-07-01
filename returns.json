@@ -1,0 +1,9 @@
+[
+    {
+        "ProductName": "Product Test Returns",
+        "Description": "This is a test product for returns.",
+        "Category": "Category Test",
+        "Price": 0.00,
+        "Stock": 0
+    }
+]

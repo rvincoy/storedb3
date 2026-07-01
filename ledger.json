@@ -1,0 +1,11 @@
+{
+    "ProductID":"12345",
+    "ProductName":"Test Name",
+    "Description":"Test Description",
+    "Category":"Test Category",
+    "CoGS":0.00,
+    "Quantity":0,
+    "Price":0.00,
+    "TotalPrice":0.00,
+    "DateOfPurchase":"2024-06-01T00:00:00.000Z"
+}

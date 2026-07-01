@@ -1,0 +1,30 @@
+[
+    {
+        "ProductName": "HP Laptop 15t-dw300",
+        "Description": "HP Laptop 15t-dw300 is a powerful and versatile laptop designed for everyday use. It features a 15.6-inch display, an Intel Core i5 processor, 8GB of RAM, and a 256GB SSD for fast performance. With its sleek design and long battery life, it's perfect for work, entertainment, and everything in between.",
+        "Category": "Laptops",
+        "Price": 599.99,
+        "Stock": 25
+    },
+    {
+        "ProductName": "Apple iPhone 13 Pro",
+        "Description": "The Apple iPhone 13 Pro is a premium smartphone that offers cutting-edge technology and a sleek design. It features a 6.1-inch Super Retina XDR display, an A15 Bionic chip for lightning-fast performance, and a Pro camera system with advanced photography capabilities. With its durable build and long battery life, the iPhone 13 Pro is perfect for those who demand the best in mobile technology.",
+        "Category": "Smartphones",
+        "Price": 999.99,
+        "Stock": 15
+    },
+    {
+        "ProductName": "Samsung Galaxy S21",
+        "Description": "The Samsung Galaxy S21 is a flagship smartphone that combines powerful performance with a sleek design. It features a 6.2-inch Dynamic AMOLED display, an Exynos 2100 processor, and a versatile camera system for stunning photos and videos. With its long-lasting battery and advanced features, the Galaxy S21 is perfect for those who want a high-quality smartphone experience.",
+        "Category": "Smartphones",
+        "Price": 799.99,
+        "Stock": 20
+    },
+    {
+        "ProductName": "Sony WH-1000XM4 Wireless Headphones",
+        "Description": "The Sony WH-1000XM4 Wireless Headphones are the ultimate choice for music lovers and audiophiles. They feature industry-leading noise cancellation technology, exceptional sound quality, and a comfortable design for long listening sessions. With up to 30 hours of battery life and smart features like adaptive sound control, these headphones are perfect for anyone who wants to enjoy their music without distractions.",
+        "Category": "Audio",
+        "Price": 349.99,
+        "Stock": 30
+    }
+]
