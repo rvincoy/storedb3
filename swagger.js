@@ -5,8 +5,8 @@ const doc = {
     title: 'Store DB API',
     description: 'Store DB API documentation'
   },
-  host: 'storedb-wyw9.onrender.com',
-  schemes: ['https'],
+  host: 'localhost:8080',
+  schemes: ['http'],
   components: {
     schemas: {
       Products: {
