@@ -55,10 +55,16 @@ passport.deserializeUser((user, done) => {
     done(null, user);
 });
 
+
+app.set('trust proxy', 1);
+
 app.use(session({
-  secret: 'your_secret_key',
+  secret: process.env.SESSION_SECRET || 'your_secret_key',
   resave: false,
   saveUninitialized: false,
+  cookie: {
+    secure: process.env.NODE_ENV === 'production'
+  }
 }));
 
 app.use(passport.initialize());
