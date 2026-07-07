@@ -7,26 +7,44 @@ const app = express();
 require('dotenv').config();
 const passport = require('passport');
 const session = require('express-session');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const exphbs = require('express-handlebars');
 
+app.engine('.hbs', exphbs.engine({ extname: '.hbs', defaultLayout: 'main' }));
+app.set('view engine', '.hbs');
+app.set('views', './views');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: "https://storedb-wyw9.onrender.com/auth/google/callback"
-}, async(accessToken, refreshToken, profile, done) => {
-    let user = await User.findOne({
-        googleId: profile.id
-    })
-    if (!user) {
-        user = await User.create({
-            googleId: profile.id,
-            name: profile.displayName,
-            email: profile.emails[0].value,
-            role: "staff"
-        });
+}, async (accessToken, refreshToken, profile, done) => {
+    try {
+        const users = mongodb.getDb().db().collection('Users');
+        let user = await users.findOne({ googleId: profile.id });
+
+        if (!user) {
+            const result = await users.insertOne({
+                googleId: profile.id,
+                UserName: profile.displayName,
+                DisplayName: profile.displayName,
+                email: profile.emails[0].value,
+                Role: "staff"
+            });
+            user = {
+                _id: result.insertedId,
+                googleId: profile.id,
+                UserName: profile.displayName,
+                DisplayName: profile.displayName,
+                email: profile.emails[0].value,
+                Role: "staff"
+            };
+        }
+
+        return done(null, user);
+    } catch (err) {
+        return done(err);
     }
-    return done(null, user);
 }));
 
 passport.serializeUser((user, done) => {
@@ -46,31 +64,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get("/", (req, res) => {
-    res.send("<a href='/auth/google'>Login with Google</a>");
-});
-
-app.get('/auth/google',
-    passport.authenticate('google', { scope: ['profile', 'email'] })
-);
-
-app.get('/auth/google/callback',
-    passport.authenticate('google', { failureRedirect: '/' }),
-    (req, res) => {
-        res.redirect('/profile');
-    }
-);
-
-app.get('/profile', (req, res) => {
-    res.json({ user: req.user });
-});
-
-app.get("/logout", (req, res) => {
-    req.logout(() => {
-        res.redirect("/");
-    });
-});
-
+app.use('/', require('./routes/authindex'));
+app.use('/auth', require('./routes/auth'));
 
 app
     .use(bodyParser.json())
@@ -80,7 +75,8 @@ app
         res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
         next();
     })
-    .use('/', require('./routes'));
+    .use('/', require('./routes'))
+    .use('/', require('./routes/authindex'));
 
 mongodb.initDb((err, mongodb) => {
     if (err) {

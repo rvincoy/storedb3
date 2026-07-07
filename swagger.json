@@ -13,7 +13,7 @@
   "paths": {
     "/products/": {
       "get": {
-        "description": "Gets all products from the database",
+        "description": "",
         "produces": [
           "application/json"
         ],
@@ -27,7 +27,7 @@
         }
       },
       "post": {
-        "description": "Creates a new product",
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -36,19 +36,19 @@
               "type": "object",
               "properties": {
                 "ProductName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Description": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Category": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Price": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "Stock": {
-                  "example": 999
+                  "example": "any"
                 }
               }
             }
@@ -69,7 +69,7 @@
     },
     "/products/{id}": {
       "get": {
-        "description": "Gets a specific product by ID",
+        "description": "",
         "produces": [
           "application/json"
         ],
@@ -91,7 +91,7 @@
         }
       },
       "put": {
-        "description": "Updates a specific product by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -106,19 +106,19 @@
               "type": "object",
               "properties": {
                 "ProductName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Description": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Category": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Price": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "Stock": {
-                  "example": 999
+                  "example": "any"
                 }
               }
             }
@@ -137,7 +137,7 @@
         }
       },
       "delete": {
-        "description": "Deletes a specific product by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -158,7 +158,7 @@
     },
     "/returns/": {
       "get": {
-        "description": "Gets all returns from the database",
+        "description": "",
         "produces": [
           "application/json"
         ],
@@ -172,7 +172,7 @@
         }
       },
       "post": {
-        "description": "Creates a new return",
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -181,19 +181,19 @@
               "type": "object",
               "properties": {
                 "ProductName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Description": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Category": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Price": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "Stock": {
-                  "example": 999
+                  "example": "any"
                 }
               }
             }
@@ -214,7 +214,7 @@
     },
     "/returns/{id}": {
       "get": {
-        "description": "Gets a specific return by ID",
+        "description": "",
         "produces": [
           "application/json"
         ],
@@ -236,7 +236,7 @@
         }
       },
       "put": {
-        "description": "Updates a specific return by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -251,19 +251,19 @@
               "type": "object",
               "properties": {
                 "ProductName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Description": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Category": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Price": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "Stock": {
-                  "example": 999
+                  "example": "any"
                 }
               }
             }
@@ -282,7 +282,7 @@
         }
       },
       "delete": {
-        "description": "Deletes a specific return by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -303,7 +303,7 @@
     },
     "/ledgers/": {
       "get": {
-        "description": "Gets all ledgers from the database",
+        "description": "",
         "produces": [
           "application/json"
         ],
@@ -317,7 +317,7 @@
         }
       },
       "post": {
-        "description": "Creates a new ledger entry",
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -326,31 +326,31 @@
               "type": "object",
               "properties": {
                 "ProductID": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "ProductName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Description": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Category": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "CoGS": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "Quantity": {
-                  "example": 999
+                  "example": "any"
                 },
                 "Price": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "TotalPrice": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "DateOfPurchase": {
-                  "example": "Jan 1, 2026"
+                  "example": "any"
                 }
               }
             }
@@ -371,7 +371,7 @@
     },
     "/ledgers/{id}": {
       "get": {
-        "description": "Gets a specific ledger entry by ID",
+        "description": "",
         "produces": [
           "application/json"
         ],
@@ -393,7 +393,7 @@
         }
       },
       "put": {
-        "description": "Updates a specific ledger entry by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -408,31 +408,31 @@
               "type": "object",
               "properties": {
                 "ProductID": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "ProductName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Description": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Category": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "CoGS": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "Quantity": {
-                  "example": 999
+                  "example": "any"
                 },
                 "Price": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "TotalPrice": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "DateOfPurchase": {
-                  "example": "Jan 1, 2026"
+                  "example": "any"
                 }
               }
             }
@@ -451,7 +451,7 @@
         }
       },
       "delete": {
-        "description": "Deletes a specific ledger entry by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -472,7 +472,7 @@
     },
     "/users/": {
       "get": {
-        "description": "Gets all users from the database",
+        "description": "",
         "produces": [
           "application/json"
         ],
@@ -486,7 +486,7 @@
         }
       },
       "post": {
-        "description": "Creates a new user",
+        "description": "",
         "parameters": [
           {
             "name": "body",
@@ -495,16 +495,16 @@
               "type": "object",
               "properties": {
                 "UserName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "DisplayName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "email": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Role": {
-                  "example": "string"
+                  "example": "any"
                 }
               }
             }
@@ -525,7 +525,7 @@
     },
     "/users/{id}": {
       "get": {
-        "description": "Gets a specific user by ID",
+        "description": "",
         "produces": [
           "application/json"
         ],
@@ -550,7 +550,7 @@
         }
       },
       "put": {
-        "description": "Updates a specific user by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
@@ -565,16 +565,16 @@
               "type": "object",
               "properties": {
                 "UserName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "DisplayName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "email": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Role": {
-                  "example": "string"
+                  "example": "any"
                 }
               }
             }
@@ -596,7 +596,7 @@
         }
       },
       "delete": {
-        "description": "Deletes a specific user by ID",
+        "description": "",
         "parameters": [
           {
             "name": "id",
