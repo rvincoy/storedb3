@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
+const { ensureAuth, signToken } = require('../middleware/auth');
 
 // @desc    Auth with Google
 // @route   GET /auth/google
@@ -11,6 +12,13 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 router.get('/google/callback', passport.authenticate('google', { failureRedirect: '/' }), 
 (req, res) => {
     res.redirect('/api-docs');
+});
+
+// @desc    Get a JWT for the current session, for use as a Bearer token in Swagger/API testing
+// @route   GET /auth/token
+router.get('/token', ensureAuth, (req, res) => {
+    const token = signToken(req.user);
+    res.json({ token });
 });
 
 // @desc    Logout user

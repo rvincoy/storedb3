@@ -7,6 +7,14 @@ const doc = {
   },
   host: 'storedb3.onrender.com',
   schemes: ['https'],
+  securityDefinitions: {
+    bearerAuth: {
+      type: 'apiKey',
+      name: 'Authorization',
+      in: 'header',
+      description: 'Enter: Bearer <token>. Get a token from GET /auth/token after logging in with Google.'
+    }
+  },
   components: {
     schemas: {
       Products: {
