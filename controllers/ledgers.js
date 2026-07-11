@@ -82,6 +82,11 @@ const createLedger = async (req, res, next) => {
 const updateLedger = async (req, res, next) => {
   try {
     const ledgerId = new ObjectId(req.params.id);
+    //code for finding the prodict id
+    const productId = req.body.productId;
+    const quantity = req.body.quantity;
+    const product = await Product.findById(productId);
+
     const ledger = {
       ProductID: req.body.ProductID,
       ProductName: req.body.ProductName,
@@ -118,6 +123,17 @@ const updateLedger = async (req, res, next) => {
       });
       return;
     }
+//code for searching for existance of productId
+    if (!product) {
+        return res.status(404).json({
+            message: "Product not found"
+        });
+    }
+    if (quantity > product.stock){
+      return res.status(400).json({message: "Not enough stock available."});
+    }
+    product.stock -= quantity;
+    await product.save();
     if (isNaN(Date.parse(ledger.DateOfPurchase))) {
       res.status(400).json({ error: "DateOfPurchase must be a valid date." });
       return;
@@ -135,6 +151,7 @@ const updateLedger = async (req, res, next) => {
   } catch (error) {
     res.status(500).json({ error: "An error occurred while updating the ledger." });
   }
+  await product.save();
 };
 
 const deleteLedger = async (req, res, next) => {
