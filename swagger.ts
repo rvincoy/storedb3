@@ -1,4 +1,7 @@
 const swaggerAutogen = require('swagger-autogen')();
+const outputFile = './src/swagger.json';
+const endpointsFiles = ['./src/routes/index.ts'];
+
 
 const doc = {
   info: {
@@ -44,8 +47,7 @@ const doc = {
   }
 };
 
-const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/index.js'];
+
 
 // generate swagger.json
 swaggerAutogen(outputFile, endpointsFiles, doc);
