@@ -6,10 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "swagger": "node ./swagger.js",
-    "start": "nodemon server.js",
     "dev": "ts-node-dev --files --respawn src/server.ts",
     "build": "tsc",
-    "starts": "node dist/server.js"
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "",
