@@ -88,4 +88,22 @@ const deleteUser = async (req, res, next) => {
     }
 };
 
-module.exports = { getAll, getSingle, createUser, updateUser, deleteUser };
+const updateUserRole = async (req, res, next) => {
+    try {
+        const userId = new ObjectId(req.params.id);
+        const { Role } = req.body;
+        if (!["admin", "staff"].includes(Role)) {
+            return res.status(400).json({ error: "Role must be 'admin' or 'staff'." });
+        }
+        const response = await mongodb.getDb().db().collection("Users").updateOne({ _id: userId }, { $set: { Role } });
+        if (response.matchedCount === 0) {
+            return res.status(404).json({ error: "User not found." });
+        }
+        res.status(200).json(response);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "An error occurred while updating the user's role." });
+    }
+};
+
+module.exports = { getAll, getSingle, createUser, updateUser, deleteUser, updateUserRole };

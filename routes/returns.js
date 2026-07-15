@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const returnsController = require('../controllers/returns');
+const { requireJWT } = require('../middleware/auth');
 
 // Get all returns
 router.get('/', returnsController.getAll);
@@ -9,12 +10,12 @@ router.get('/', returnsController.getAll);
 router.get('/:id', returnsController.getSingle);
 
 // Create a new return
-router.post('/', returnsController.createReturn);
+router.post('/', requireJWT, returnsController.createReturn);
 
 // Update a return
-router.put('/:id', returnsController.updateReturn);
+router.put('/:id', requireJWT, returnsController.updateReturn);
 
 // Delete a return
-router.delete('/:id', returnsController.deleteReturn);
+router.delete('/:id', requireJWT, returnsController.deleteReturn);
 
 module.exports = router;
