@@ -19,25 +19,6 @@
     }
   },
   "paths": {
-    "/auth/token": {
-      "get": {
-        "tags": [
-          "Auth"
-        ],
-        "description": "Returns a JWT for the currently logged-in session. Log in via /auth/google in a browser first (this endpoint requires an active session cookie, not a Bearer token).",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "302": {
-            "description": "Redirect to / if no active session"
-          }
-        }
-      }
-    },
     "/products/": {
       "get": {
         "description": "Gets all products from the database",
@@ -57,25 +38,30 @@
         "description": "Creates a new product",
         "parameters": [
           {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
                 "ProductName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Description": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Category": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Price": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "Stock": {
-                  "example": 999
+                  "example": "any"
                 }
               }
             }
@@ -87,6 +73,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -132,25 +121,30 @@
             "type": "string"
           },
           {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
                 "ProductName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Description": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Category": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Price": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "Stock": {
-                  "example": 999
+                  "example": "any"
                 }
               }
             }
@@ -162,6 +156,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -181,11 +178,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -217,25 +222,30 @@
         "description": "Creates a new return",
         "parameters": [
           {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
                 "ProductName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Description": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Category": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Price": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "Stock": {
-                  "example": 999
+                  "example": "any"
                 }
               }
             }
@@ -247,6 +257,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -292,25 +305,30 @@
             "type": "string"
           },
           {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
                 "ProductName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Description": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Category": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Price": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "Stock": {
-                  "example": 999
+                  "example": "any"
                 }
               }
             }
@@ -322,6 +340,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -341,11 +362,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -377,37 +406,42 @@
         "description": "Creates a new ledger entry",
         "parameters": [
           {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
                 "ProductID": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "ProductName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Description": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Category": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "CoGS": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "Quantity": {
-                  "example": 999
+                  "example": "any"
                 },
                 "Price": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "TotalPrice": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "DateOfPurchase": {
-                  "example": "Jan 1, 2026"
+                  "example": "any"
                 }
               }
             }
@@ -419,6 +453,12 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -464,37 +504,42 @@
             "type": "string"
           },
           {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
                 "ProductID": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "ProductName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Description": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Category": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "CoGS": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "Quantity": {
-                  "example": 999
+                  "example": "any"
                 },
                 "Price": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "TotalPrice": {
-                  "example": 999.99
+                  "example": "any"
                 },
                 "DateOfPurchase": {
-                  "example": "Jan 1, 2026"
+                  "example": "any"
                 }
               }
             }
@@ -506,6 +551,12 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -525,11 +576,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -548,9 +607,19 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -566,22 +635,27 @@
         "description": "Creates a new user",
         "parameters": [
           {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
                 "UserName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "DisplayName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "email": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Role": {
-                  "example": "string"
+                  "example": "any"
                 }
               }
             }
@@ -593,6 +667,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Internal Server Error"
@@ -617,11 +694,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -646,22 +731,27 @@
             "type": "string"
           },
           {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
             "name": "body",
             "in": "body",
             "schema": {
               "type": "object",
               "properties": {
                 "UserName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "DisplayName": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "email": {
-                  "example": "string"
+                  "example": "any"
                 },
                 "Role": {
-                  "example": "string"
+                  "example": "any"
                 }
               }
             }
@@ -673,6 +763,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -695,11 +788,19 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -717,20 +818,17 @@
     },
     "/users/{id}/role": {
       "patch": {
-        "tags": [
-          "Users"
-        ],
         "description": "Promotes or demotes a user's role. Admin only.",
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -740,7 +838,7 @@
               "type": "object",
               "properties": {
                 "Role": {
-                  "example": "admin"
+                  "example": "any"
                 }
               }
             }
@@ -756,16 +854,18 @@
           "401": {
             "description": "Unauthorized"
           },
-          "403": {
-            "description": "Forbidden"
-          },
           "404": {
             "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     }
   },
