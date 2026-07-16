@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env NODE_ENV=test jest",
+    "test:integration": "cross-env NODE_ENV=test jest --config jest.integration.config.js",
     "swagger": "node ./swagger.js",
     "start": "nodemon server.js"
   },
@@ -20,6 +21,7 @@
     "express": "^5.2.1",
     "express-handlebars": "^9.0.1",
     "express-session": "^1.19.0",
+    "jsonwebtoken": "^9.0.3",
     "method-override": "^3.0.0",
     "moment": "^2.30.1",
     "mongodb": "^7.4.0",
@@ -30,6 +32,7 @@
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
+    "jest": "^30.4.2",
     "nodemon": "^3.1.14",
     "swagger-autogen": "^2.23.7"
   }
