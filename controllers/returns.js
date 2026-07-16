@@ -4,10 +4,9 @@ const ObjectId = require('mongodb').ObjectId;
 const getAll = async (req, res, next) => {
     try {
         const result = await mongodb.getDb().db().collection('Returns').find();
-        result.toArray().then((lists) => {
-            res.setHeader('Content-Type', 'application/json');
-            res.status(200).json(lists);
-        });
+        const lists = await result.toArray();
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(lists);
     } catch (error) {
         res.status(500).json({ error: 'An error occurred while fetching the returns.' });
     }
@@ -17,10 +16,9 @@ const getSingle = async (req, res, next) => {
     try {
         const returnId = new ObjectId(req.params.id);
         const result = await mongodb.getDb().db().collection('Returns').find({ _id: returnId });
-        result.toArray().then((lists) => {
-            res.setHeader('Content-Type', 'application/json');
-            res.status(200).json(lists[0]);
-        });
+        const lists = await result.toArray();
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(lists[0]);
     } catch (error) {
         res.status(500).json({ error: 'An error occurred while fetching the returns.' });
     }
